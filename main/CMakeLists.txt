@@ -1,0 +1,3 @@
+idf_component_register(SRCS "audio_data.c" "audio_player.c" "ai_chat.c" "speech_recognition.c" "ec11.c" "wifi_manager.c" "web_server.c" "main.c" "ds3231.c" "weather_api.c" "font/my_font_1.c" "wifi_status_task.c"
+                    INCLUDE_DIRS "."
+                    REQUIRES lvgl esp_timer driver esp_wifi esp_netif esp_event nvs_flash esp_http_client json esp-tls mbedtls esp_adc spiffs esp_http_server) 

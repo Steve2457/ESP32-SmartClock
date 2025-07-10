@@ -1,0 +1,118 @@
+# ESP-IDF 构建输出
+build/
+sdkconfig.old
+
+# 依赖和管理的目录
+dependencies.lock
+managed_components/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# CLion/IntelliJ
+.idea/
+cmake-build-*/
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Vim
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# Python 字节码文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# 压缩文件
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# 证书和密钥文件
+*.pem
+*.key
+*.crt
+*.p12
+
+# 配置文件中的敏感信息
+# 如果有包含密码或API密钥的配置文件，请在此添加
+
+# 测试覆盖率报告
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# 文档构建输出
+docs/_build/
+
+# ESP-IDF 特定的临时文件
+.espressif/
+esp-idf-*
+
+# 本地环境配置
+.env
+.env.local
+
+# 编辑器配置
+*.sublime-project
+*.sublime-workspace
+
+# JetBrains IDEs
+*.iml
+*.ipr
+*.iws
+
+# 调试文件
+*.dmp 
+
+# Local configuration
+main/secrets.h 

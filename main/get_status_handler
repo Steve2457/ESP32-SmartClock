@@ -1,0 +1,18 @@
+// 为所有处理器函数添加连接计数
+// 修改get_status_handler函数
+static esp_err_t get_status_handler(httpd_req_t *req)
+{
+    // 增加连接计数器
+    active_connections++;
+    total_connection_counter++;
+    
+    ESP_LOGI(TAG, "状态请求已接收! 活动连接: %lu, 总连接数: %lu",
+            (unsigned long)active_connections, (unsigned long)total_connection_counter);
+            
+    // ... 原始代码逻辑 ...
+
+    // 响应结束后减少活动连接计数
+    active_connections--;
+    
+    return ESP_OK;
+} 

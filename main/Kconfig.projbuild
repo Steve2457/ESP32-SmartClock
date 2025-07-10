@@ -1,0 +1,216 @@
+menu "LVGL Configuration"
+    
+    config LV_USE_FONT_COMPRESSED
+        bool "Enable compressed fonts support"
+        default y
+        help
+            Enable support for compressed fonts in LVGL
+    
+    config LV_FONT_FMT_TXT_LARGE
+        bool "Enable large font support"
+        default y
+        help
+            Enable if you have fonts with a lot of characters.
+            The limit depends on the font size, font face and bpp
+            but with > 10,000 characters if you see issues probably you
+            need to enable it.
+    
+    config LV_COLOR_DEPTH
+        int "Color depth"
+        range 1 32
+        default 16
+        help
+            Color depth to be used. Can be 1, 8, 16 or 32.
+    
+    config LV_COLOR_16_SWAP
+        bool "Swap RGB565 bytes"
+        depends on LV_COLOR_DEPTH = 16
+        default n
+        help
+            Swap the 2 bytes of RGB565 color. 
+            Useful if the display has an 8-bit interface (e.g. SPI).
+
+    menu "Font Configuration"
+        
+        menu "Built-in Fonts"
+            config LV_FONT_MONTSERRAT_8
+                bool "Enable Montserrat 8px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_10
+                bool "Enable Montserrat 10px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_12
+                bool "Enable Montserrat 12px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_14
+                bool "Enable Montserrat 14px font"
+                default y
+                
+            config LV_FONT_MONTSERRAT_16
+                bool "Enable Montserrat 16px font"
+                default y
+                
+            config LV_FONT_MONTSERRAT_18
+                bool "Enable Montserrat 18px font"
+                default y
+                
+            config LV_FONT_MONTSERRAT_20
+                bool "Enable Montserrat 20px font"
+                default y
+                
+            config LV_FONT_MONTSERRAT_22
+                bool "Enable Montserrat 22px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_24
+                bool "Enable Montserrat 24px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_26
+                bool "Enable Montserrat 26px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_28
+                bool "Enable Montserrat 28px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_30
+                bool "Enable Montserrat 30px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_32
+                bool "Enable Montserrat 32px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_34
+                bool "Enable Montserrat 34px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_36
+                bool "Enable Montserrat 36px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_38
+                bool "Enable Montserrat 38px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_40
+                bool "Enable Montserrat 40px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_42
+                bool "Enable Montserrat 42px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_44
+                bool "Enable Montserrat 44px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_46
+                bool "Enable Montserrat 46px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_48
+                bool "Enable Montserrat 48px font"
+                default n
+                
+            config LV_FONT_MONTSERRAT_28_COMPRESSED
+                bool "Enable Montserrat 28px compressed font"
+                default n
+                
+            config LV_FONT_DEJAVU_16_PERSIAN_HEBREW
+                bool "Enable DejaVu 16px Persian/Hebrew font"
+                default n
+                
+            config LV_FONT_SIMSUN_16_CJK
+                bool "Enable SimSun 16px CJK font"
+                default n
+                help
+                    Enable Chinese, Japanese, Korean character support
+                
+            config LV_FONT_UNSCII_8
+                bool "Enable UNSCII 8px monospace font"
+                default n
+                
+            config LV_FONT_UNSCII_16
+                bool "Enable UNSCII 16px monospace font"
+                default n
+        endmenu
+        
+        choice LV_FONT_DEFAULT
+            prompt "Select default font"
+            default LV_FONT_DEFAULT_MONTSERRAT_16
+            help
+                Select the default font for LVGL
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_8
+                bool "Montserrat 8px"
+                select LV_FONT_MONTSERRAT_8
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_10
+                bool "Montserrat 10px"
+                select LV_FONT_MONTSERRAT_10
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_12
+                bool "Montserrat 12px"
+                select LV_FONT_MONTSERRAT_12
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_14
+                bool "Montserrat 14px"
+                select LV_FONT_MONTSERRAT_14
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_16
+                bool "Montserrat 16px"
+                select LV_FONT_MONTSERRAT_16
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_18
+                bool "Montserrat 18px"
+                select LV_FONT_MONTSERRAT_18
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_20
+                bool "Montserrat 20px"
+                select LV_FONT_MONTSERRAT_20
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_22
+                bool "Montserrat 22px"
+                select LV_FONT_MONTSERRAT_22
+                
+            config LV_FONT_DEFAULT_MONTSERRAT_24
+                bool "Montserrat 24px"
+                select LV_FONT_MONTSERRAT_24
+        endchoice
+        
+        config LV_FONT_CUSTOM
+            bool "Enable custom font"
+            default n
+            help
+                Enable custom font support
+                
+        config LV_FONT_CUSTOM_DECLARE
+            string "Custom font header file"
+            depends on LV_FONT_CUSTOM
+            default "my_font.h"
+            help
+                Header file containing custom font declaration
+    endmenu
+    
+    menu "Memory Configuration"
+        config LV_MEM_CUSTOM
+            bool "Use custom memory allocation"
+            default n
+            help
+                Use custom malloc/free instead of built-in memory allocation
+                
+        config LV_MEM_SIZE_KB
+            int "Memory pool size (KB)"
+            depends on !LV_MEM_CUSTOM
+            range 2 1024
+            default 64
+            help
+                Size of the memory pool used by LVGL in kilobytes
+    endmenu
+
+endmenu 
